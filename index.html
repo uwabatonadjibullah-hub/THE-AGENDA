@@ -25,6 +25,7 @@
             justify-content: center;
             align-items: center;
             padding: 2rem;
+            box-sizing: border-box;
         }
 
         @keyframes gradientBG {
@@ -43,6 +44,7 @@
             padding: 2.5rem;
             max-width: 1000px;
             width: 100%;
+            box-sizing: border-box;
         }
 
         .header {
@@ -70,14 +72,23 @@
             font-style: italic;
         }
 
+        /* Responsive Table Wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
+            min-width: 600px; /* Ensures table doesn't squish too much before scrolling */
         }
 
         th, td {
-            padding: 12px;
+            padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -86,10 +97,11 @@
             background: rgba(255, 255, 255, 0.1);
             font-weight: bold;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         tr:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .rules, .panel {
@@ -105,9 +117,10 @@
             padding-bottom: 0.5rem;
         }
 
-        .rules ol {
+        .rules ol, .panel ul {
             margin: 0;
             padding-left: 1.5rem;
+            line-height: 1.6;
         }
 
         .footer {
@@ -121,6 +134,47 @@
         .footer a {
             color: #ffd700;
             text-decoration: none;
+            word-break: break-all;
+        }
+
+        .qr-code {
+            margin: 1.5rem auto 1rem auto;
+            display: block;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem; /* Less padding on the body for mobile */
+            }
+
+            .glass-container {
+                padding: 1.5rem; /* Less padding inside the container */
+                border-radius: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem; /* Scale down main title */
+            }
+
+            .header h2 {
+                font-size: 1rem; /* Scale down subtitle */
+            }
+
+            .rules, .panel {
+                padding: 1rem;
+            }
+
+            th, td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -128,141 +182,147 @@
 
     <div class="glass-container">
         <div class="header">
-            <h1>KSP RWANDA TRAINING CENTER[cite: 1]</h1>
-            <h2>Key To Skills & Professionalism[cite: 1]</h2>
-            <p>"Your Career, Time To Raise UP"[cite: 1]</p>
-            <h3 style="margin-top: 1rem;">GAHUNDA Y'A DEFANCE 23/04/2026[cite: 1]</h3>
+            <h1>KSP RWANDA TRAINING CENTER[span_0](start_span)[span_0](end_span)</h1>
+            <h2>Key To Skills & Professionalism[span_1](start_span)[span_1](end_span)</h2>
+            <p>"Your Career, Time To Raise UP[span_2](start_span)"[span_2](end_span)</p>
+            <h3 style="margin-top: 1rem;">GAHUNDA Y'A DEFANCE 23/04/2026[span_3](start_span)[span_3](end_span)</h3>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ISAHA[cite: 1]</th>
-                    <th>IGIKORWA[cite: 1]</th>
-                    <th>UMUYOBOZI[cite: 1]</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08:00-08:30[cite: 1]</td>
-                    <td>KUGENZURA LISTE Y'ABEMEREWE GUKORA DEFANCE NO KUZUZA PORTIFOLIO[cite: 1]</td>
-                    <td>Esther IRERA MUGISHA + Yvette UWAMARIYA[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>08:30-08:35[cite: 1]</td>
-                    <td>GUTANGIRA (UMUYOBOZI W'AGAHUNDA)[cite: 1]</td>
-                    <td>Jean De Dieu NTIBIBAZA[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>08:35-08:40[cite: 1]</td>
-                    <td>ISENGESHO[cite: 1]</td>
-                    <td>Umunyeshuri[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>08:40-09:55[cite: 1]</td>
-                    <td>MULTIMEDIA PRODUCTION[cite: 1]</td>
-                    <td>15 Student's Presantation[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>09:55-10:20[cite: 1]</td>
-                    <td>PHOTOGRAPHY AND GRAPHIC DESIGN[cite: 1]</td>
-                    <td>4 Student's Presantation[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>10:20-10:25[cite: 1]</td>
-                    <td>CCTV Camera Installation[cite: 1]</td>
-                    <td>1 Student's Presantation[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>10:25-10:30[cite: 1]</td>
-                    <td>GUHA IKAZE ABASHYITSI[cite: 1]</td>
-                    <td>Director General[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>10:30-10:45[cite: 1]</td>
-                    <td>SOFTWARE DEVELOPMENT[cite: 1]</td>
-                    <td>3 Student's Presantation[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>10:45-11:30[cite: 1]</td>
-                    <td>5 Years Celebration with Guests[cite: 1]</td>
-                    <td>All[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>11:30-11:40[cite: 1]</td>
-                    <td>IJAMBO[cite: 1]</td>
-                    <td>Guest/Partner[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>11:40-11:50[cite: 1]</td>
-                    <td>Pannel[cite: 1]</td>
-                    <td>UMUYOBOZI W'IKIGO[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>11:50-12:00[cite: 1]</td>
-                    <td>IJAMBO[cite: 1]</td>
-                    <td>Guest/Partner[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>12:00-12:10[cite: 1]</td>
-                    <td>IFOTO[cite: 1]</td>
-                    <td>IRENE & MEDIA[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>12:10-13:30[cite: 1]</td>
-                    <td>TOURISM AND HOSPITALITY[cite: 1]</td>
-                    <td>19 Student's Presantation[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>13:30-14:00[cite: 1]</td>
-                    <td>10min BREAK/Gukusanya no Gutangaza Amanota[cite: 1]</td>
-                    <td>Nadjibullah+Judges[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>14:00-14:10[cite: 1]</td>
-                    <td>IBIHEMBO KUBANYESHURI BAMWE BASOJE N'ABATSINZE KURUTA ABANDI[cite: 1]</td>
-                    <td>Director General N'abashyitsi[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>14:10-14:15[cite: 1]</td>
-                    <td>ISENGESHO NO GUSOZA[cite: 1]</td>
-                    <td>Umunyeshuri[cite: 1]</td>
-                </tr>
-                <tr>
-                    <td>14:15-14:30[cite: 1]</td>
-                    <td>NETWORKING[cite: 1]</td>
-                    <td>ALL[cite: 1]</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ISAHA[span_4](start_span)[span_4](end_span)</th>
+                        <th>IGIKORWA[span_5](start_span)[span_5](end_span)</th>
+                        <th>UMUYOBOZI[span_6](start_span)[span_6](end_span)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08:00-08:30[span_7](start_span)[span_7](end_span)</td>
+                        <td>KUGENZURA LISTE Y'ABEMEREWE GUKORA DEFANCE NO KUZUZA PORTIFOLIO[span_8](start_span)[span_8](end_span)</td>
+                        <td>Esther IRERA MUGISHA + Yvette UWAMARIYA[span_9](start_span)[span_9](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>08:30-08:35[span_10](start_span)[span_10](end_span)</td>
+                        <td>GUTANGIRA (UMUYOBOZI W'AGAHUNDA)[span_11](start_span)[span_11](end_span)</td>
+                        <td>Jean De Dieu NTIBIBAZA[span_12](start_span)[span_12](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>08:35-08:40[span_13](start_span)[span_13](end_span)</td>
+                        <td>ISENGESHO[span_14](start_span)[span_14](end_span)</td>
+                        <td>Umunyeshuri[span_15](start_span)[span_15](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>08:40-09:55[span_16](start_span)[span_16](end_span)</td>
+                        <td>MULTIMEDIA PRODUCTION[span_17](start_span)[span_17](end_span)</td>
+                        <td>15 Student's Presantation[span_18](start_span)[span_18](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>09:55-10:20[span_19](start_span)[span_19](end_span)</td>
+                        <td>PHOTOGRAPHY AND GRAPHIC DESIGN[span_20](start_span)[span_20](end_span)</td>
+                        <td>4 Student's Presantation[span_21](start_span)[span_21](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>10:20-10:25[span_22](start_span)[span_22](end_span)</td>
+                        <td>CCTV Camera Installation[span_23](start_span)[span_23](end_span)</td>
+                        <td>1 Student's Presantation[span_24](start_span)[span_24](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>10:25-10:30[span_25](start_span)[span_25](end_span)</td>
+                        <td>GUHA IKAZE ABASHYITSI[span_26](start_span)[span_26](end_span)</td>
+                        <td>Director General[span_27](start_span)[span_27](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>10:30-10:45[span_28](start_span)[span_28](end_span)</td>
+                        <td>SOFTWARE DEVELOPMENT[span_29](start_span)[span_29](end_span)</td>
+                        <td>3 Student's Presantation[span_30](start_span)[span_30](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>10:45-11:30[span_31](start_span)[span_31](end_span)</td>
+                        <td>5 Years Celebration with Guests[span_32](start_span)[span_32](end_span)</td>
+                        <td>All[span_33](start_span)[span_33](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>11:30-11:40[span_34](start_span)[span_34](end_span)</td>
+                        <td>IJAMBO[span_35](start_span)[span_35](end_span)</td>
+                        <td>Guest/Partner[span_36](start_span)[span_36](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>11:40-11:50[span_37](start_span)[span_37](end_span)</td>
+                        <td>Pannel[span_38](start_span)[span_38](end_span)</td>
+                        <td>UMUYOBOZI W'IKIGO[span_39](start_span)[span_39](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>11:50-12:00[span_40](start_span)[span_40](end_span)</td>
+                        <td>IJAMBO[span_41](start_span)[span_41](end_span)</td>
+                        <td>Guest/Partner[span_42](start_span)[span_42](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>12:00-12:10[span_43](start_span)[span_43](end_span)</td>
+                        <td>IFOTO[span_44](start_span)[span_44](end_span)</td>
+                        <td>IRENE & MEDIA[span_45](start_span)[span_45](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>12:10-13:30[span_46](start_span)[span_46](end_span)</td>
+                        <td>TOURISM AND HOSPITALITY[span_47](start_span)[span_47](end_span)</td>
+                        <td>19 Student's Presantation[span_48](start_span)[span_48](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>13:30-14:00[span_49](start_span)[span_49](end_span)</td>
+                        <td>10min BREAK/Gukusanya no Gutangaza Amanota[span_50](start_span)[span_50](end_span)</td>
+                        <td>Nadjibullah+Judges[span_51](start_span)[span_51](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>14:00-14:10[span_52](start_span)[span_52](end_span)</td>
+                        <td>IBIHEMBO KUBANYESHURI BAMWE BASOJE N'ABATSINZE KURUTA ABANDI[span_53](start_span)[span_53](end_span)</td>
+                        <td>Director General N'abashyitsi[span_54](start_span)[span_54](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>14:10-14:15[span_55](start_span)[span_55](end_span)</td>
+                        <td>ISENGESHO NO GUSOZA[span_56](start_span)[span_56](end_span)</td>
+                        <td>Umunyeshuri[span_57](start_span)[span_57](end_span)</td>
+                    </tr>
+                    <tr>
+                        <td>14:15-14:30[span_58](start_span)[span_58](end_span)</td>
+                        <td>NETWORKING[span_59](start_span)[span_59](end_span)</td>
+                        <td>ALL[span_60](start_span)[span_60](end_span)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="rules">
-            <h3>ICYITONDERWA:[cite: 1]</h3>
+            <h3>ICYITONDERWA:[span_61](start_span)[span_61](end_span)</h3>
             <ol>
-                <li>Umunyeshuri uzakora defance akaza nyuma ya Saa 08:30 am hamaze gukorwa igenzurwa ry'urutonde rwabemerewe gukora, ntazemererwa gushyirwa kuri liste yabazakora ejo.[cite: 1]</li>
-                <li>Umunyeshuri uzajya w'uzuza iminota 5 asabwa gukoresha muri presentation azajya ahita ahagarikwa n'abari kuri pannel (Dusabwa gukoresha igihe neza)[cite: 1]</li>
-                <li>Umunyeshuri agomba gukora presentation mukiciro yemerewe gusa.[cite: 1]</li>
-                <li>Kubahiriza igihe ni itegeko kuri twese.[cite: 1]</li>
+                <li>Umunyeshuri uzakora defance akaza nyuma ya Saa 08:30 am hamaze gukorwa igenzurwa ry'urutonde rwabemerewe gukora, ntazemererwa gushyirwa kuri liste yabazakora ejo.[span_62](start_span)[span_62](end_span)</li>
+                <li>Umunyeshuri uzajya w'uzuza iminota 5 asabwa gukoresha muri presentation azajya ahita ahagarikwa n'abari kuri pannel (Dusabwa gukoresha igihe neza)[span_63](start_span)[span_63](end_span)</li>
+                <li>Umunyeshuri agomba gukora presentation mukiciro yemerewe gusa.[span_64](start_span)[span_64](end_span)</li>
+                <li>Kubahiriza igihe ni itegeko kuri twese.[span_65](start_span)[span_65](end_span)</li>
             </ol>
         </div>
 
         <div class="panel">
-            <h3>Abazayobora Pannel y'umunsi[cite: 1]</h3>
+            <h3>Abazayobora Pannel y'umunsi[span_66](start_span)[span_66](end_span)</h3>
             <ul>
-                <li>I. Nadjibullah UWABATO[cite: 1]</li>
-                <li>II. Emmanuel NZARAMBA[cite: 1]</li>
-                <li>III. Viatel NIYITEGEKA[cite: 1]</li>
-                <li>IV. NIYIDUHA Didac[cite: 1]</li>
+                <li>I. Nadjibullah UWABATO[span_67](start_span)[span_67](end_span)</li>
+                <li>II. Emmanuel NZARAMBA[span_68](start_span)[span_68](end_span)</li>
+                <li>III. Viatel NIYITEGEKA[span_69](start_span)[span_69](end_span)</li>
+                <li>IV. NIYIDUHA Didac[span_70](start_span)[span_70](end_span)</li>
             </ul>
         </div>
 
         <div class="footer">
-            <p><strong>ABAZADEFANDA TUBIFURIJE INTSINZI.</strong>[cite: 1]</p>
+            <p><strong>ABAZADEFANDA TUBIFURIJE INTSINZI.</strong>[span_71](start_span)[span_71](end_span)</p>
             <p>
-                <a href="http://www.ksp.rw" target="_blank">www.ksp.rw</a>[cite: 1] | 
-                Tel: 0785478665[cite: 1] | 
-                E-mail: <a href="mailto:ksprwanda@gmail.com">ksprwanda@gmail.com</a>[cite: 1]
+                <a href="http://www.ksp.rw" target="_blank">www.ksp.rw</a>[span_72](start_span)[span_72](end_span) | 
+                Tel: 0785478665[span_73](start_span)[span_73](end_span) | 
+                E-mail: <a href="mailto:ksprwanda@gmail.com">ksprwanda@gmail.com</a>[span_74](start_span)[span_74](end_span)
             </p>
+            
+            <!-- Dynamically generated QR code via API targeting the requested URL -->
+            <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://defenseagenda.netlify.app" alt="QR Code for Defense Agenda">
+            <p><small>Scan to view agenda online</small></p>
         </div>
     </div>
 
