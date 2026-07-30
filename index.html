@@ -1,329 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSP Rwanda - Gahunda Y'a Defance 23/04/2026</title>
-    <style>
-        :root {
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            --text-color: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>KSP Rwanda - Gahunda Y'a Defance 23/04/2026</title>
+<style>
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.15);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        --text-color: #ffffff;
+        --accent: #ffd700;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(45deg, #1e3c72, #2a5298, #ff6a00, #ee0979);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
 
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(45deg, #1e3c72, #2a5298, #ff6a00, #ee0979);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: clamp(0.75rem, 4vw, 2rem);
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .glass-container {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-shadow);
+        padding: clamp(1rem, 3vw, 2.5rem);
+        max-width: 1000px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--glass-border);
+        padding-bottom: 1rem;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: clamp(1.15rem, 4vw, 2rem);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        line-height: 1.3;
+    }
+
+    .header h2 {
+        margin: 0.4rem 0;
+        font-size: clamp(0.85rem, 2.5vw, 1.2rem);
+        font-weight: 400;
+    }
+
+    .header p {
+        margin: 0;
+        font-style: italic;
+        font-size: clamp(0.8rem, 2.2vw, 1rem);
+    }
+
+    .header h3 {
+        margin-top: 1rem;
+        font-size: clamp(0.9rem, 2.8vw, 1.15rem);
+        line-height: 1.4;
+    }
+
+    /* Responsive table wrapper with subtle scroll cue */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 1.75rem;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.15);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .table-responsive::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 560px;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--glass-border);
+        font-size: 0.95rem;
+    }
+
+    th {
+        background: rgba(255, 255, 255, 0.12);
+        font-weight: bold;
+        text-transform: uppercase;
+        white-space: nowrap;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        position: sticky;
+        top: 0;
+    }
+
+    tr:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .rules, .panel {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1.25rem 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .rules h3, .panel h3 {
+        margin-top: 0;
+        border-bottom: 1px solid var(--glass-border);
+        padding-bottom: 0.5rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    }
+
+    .rules ol, .panel ul {
+        margin: 0;
+        padding-left: 1.4rem;
+        line-height: 1.6;
+        font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    }
+
+    .rules li, .panel li {
+        margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER — QR code lives here, always */
+    .footer {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--glass-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer p {
+        margin: 0.15rem 0;
+        line-height: 1.5;
+    }
+
+    .footer a {
+        color: var(--accent);
+        text-decoration: none;
+        word-break: break-word;
+    }
+
+    .footer a:hover,
+    .footer a:active {
+        text-decoration: underline;
+    }
+
+    .contact-line {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4rem 0.6rem;
+        font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+    }
+
+    .qr-wrapper {
+        margin-top: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .qr-code {
+        background: #fff;
+        padding: 10px;
+        border-radius: 12px;
+        width: clamp(100px, 30vw, 130px);
+        height: clamp(100px, 30vw, 130px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        display: block;
+    }
+
+    .qr-wrapper small {
+        opacity: 0.85;
+        font-size: 0.8rem;
+    }
+
+    /* Tablet & below */
+    @media (max-width: 768px) {
         .glass-container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            padding: 2.5rem;
-            max-width: 1000px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 1rem;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .header h2 {
-            margin: 0.5rem 0;
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        .header p {
-            margin: 0;
-            font-style: italic;
-        }
-
-        /* Responsive Table Wrapper */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 600px; /* Ensures table doesn't squish too much before scrolling */
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        th {
-            background: rgba(255, 255, 255, 0.1);
-            font-weight: bold;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        tr:hover {
-            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
         }
 
         .rules, .panel {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+            padding: 1rem 1.1rem;
         }
 
-        .rules h3, .panel h3 {
-            margin-top: 0;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 0.5rem;
+        th, td {
+            padding: 10px 12px;
+        }
+    }
+
+    /* Phones */
+    @media (max-width: 480px) {
+        body {
+            padding: 0.5rem;
+            align-items: stretch;
         }
 
-        .rules ol, .panel ul {
-            margin: 0;
-            padding-left: 1.5rem;
-            line-height: 1.6;
+        .glass-container {
+            border-radius: 12px;
+            padding: 1rem 0.85rem;
         }
 
-        .footer {
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--glass-border);
+        .header {
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.75rem;
         }
-        
-        .footer a {
-            color: #ffd700;
-            text-decoration: none;
-            word-break: break-all;
+
+        table {
+            min-width: 480px;
+        }
+
+        th, td {
+            font-size: 0.8rem;
+            padding: 8px 10px;
+        }
+
+        .rules, .panel {
+            padding: 0.85rem 1rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .contact-line {
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .contact-line span.sep {
+            display: none;
         }
 
         .qr-code {
-            margin: 1.5rem auto 1rem auto;
-            display: block;
-            background: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            width: 120px;
-            height: 120px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 110px;
+            height: 110px;
+        }
+    }
+
+    /* Very small phones */
+    @media (max-width: 340px) {
+        table {
+            min-width: 420px;
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem; /* Less padding on the body for mobile */
-            }
-
-            .glass-container {
-                padding: 1.5rem; /* Less padding inside the container */
-                border-radius: 15px;
-            }
-
-            .header h1 {
-                font-size: 1.5rem; /* Scale down main title */
-            }
-
-            .header h2 {
-                font-size: 1rem; /* Scale down subtitle */
-            }
-
-            .rules, .panel {
-                padding: 1rem;
-            }
-
-            th, td {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
+        th, td {
+            font-size: 0.75rem;
+            padding: 7px 8px;
         }
-    </style>
+    }
+
+    /* Landscape phones - avoid overly tall layout squeeze */
+    @media (max-height: 480px) and (orientation: landscape) {
+        body {
+            align-items: center;
+        }
+
+        .glass-container {
+            max-height: 92vh;
+            overflow-y: auto;
+        }
+    }
+</style>
 </head>
 <body>
 
     <div class="glass-container">
         <div class="header">
-            <h1>KSP RWANDA TRAINING CENTER[span_0](start_span)[span_0](end_span)</h1>
-            <h2>Key To Skills & Professionalism[span_1](start_span)[span_1](end_span)</h2>
-            <p>"Your Career, Time To Raise UP[span_2](start_span)"[span_2](end_span)</p>
-            <h3 style="margin-top: 1rem;">GAHUNDA Y'A DEFANCE 23/04/2026[span_3](start_span)[span_3](end_span)</h3>
+            <h1>KSP Rwanda Training Center</h1>
+            <h2>Key To Skills &amp; Professionalism</h2>
+            <p>"Your Career, Time To Raise UP"</p>
+            <h3>Gahunda Y'a Defance 23/04/2026</h3>
         </div>
 
         <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
-                        <th>ISAHA[span_4](start_span)[span_4](end_span)</th>
-                        <th>IGIKORWA[span_5](start_span)[span_5](end_span)</th>
-                        <th>UMUYOBOZI[span_6](start_span)[span_6](end_span)</th>
+                        <th>Isaha</th>
+                        <th>Igikorwa</th>
+                        <th>Umuyobozi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>08:00-08:30[span_7](start_span)[span_7](end_span)</td>
-                        <td>KUGENZURA LISTE Y'ABEMEREWE GUKORA DEFANCE NO KUZUZA PORTIFOLIO[span_8](start_span)[span_8](end_span)</td>
-                        <td>Esther IRERA MUGISHA + Yvette UWAMARIYA[span_9](start_span)[span_9](end_span)</td>
+                        <td>08:00–08:30</td>
+                        <td>Kugenzura liste y'abemerewe gukora defance no kuzuza portifolio</td>
+                        <td>Esther Irera Mugisha + Yvette Uwamariya</td>
                     </tr>
                     <tr>
-                        <td>08:30-08:35[span_10](start_span)[span_10](end_span)</td>
-                        <td>GUTANGIRA (UMUYOBOZI W'AGAHUNDA)[span_11](start_span)[span_11](end_span)</td>
-                        <td>Jean De Dieu NTIBIBAZA[span_12](start_span)[span_12](end_span)</td>
+                        <td>08:30–08:35</td>
+                        <td>Gutangira (Umuyobozi w'agahunda)</td>
+                        <td>Jean De Dieu Ntibibaza</td>
                     </tr>
                     <tr>
-                        <td>08:35-08:40[span_13](start_span)[span_13](end_span)</td>
-                        <td>ISENGESHO[span_14](start_span)[span_14](end_span)</td>
-                        <td>Umunyeshuri[span_15](start_span)[span_15](end_span)</td>
+                        <td>08:35–08:40</td>
+                        <td>Isengesho</td>
+                        <td>Umunyeshuri</td>
                     </tr>
                     <tr>
-                        <td>08:40-09:55[span_16](start_span)[span_16](end_span)</td>
-                        <td>MULTIMEDIA PRODUCTION[span_17](start_span)[span_17](end_span)</td>
-                        <td>15 Student's Presantation[span_18](start_span)[span_18](end_span)</td>
+                        <td>08:40–09:55</td>
+                        <td>Multimedia Production</td>
+                        <td>15 Students' Presentation</td>
                     </tr>
                     <tr>
-                        <td>09:55-10:20[span_19](start_span)[span_19](end_span)</td>
-                        <td>PHOTOGRAPHY AND GRAPHIC DESIGN[span_20](start_span)[span_20](end_span)</td>
-                        <td>4 Student's Presantation[span_21](start_span)[span_21](end_span)</td>
+                        <td>09:55–10:20</td>
+                        <td>Photography and Graphic Design</td>
+                        <td>4 Students' Presentation</td>
                     </tr>
                     <tr>
-                        <td>10:20-10:25[span_22](start_span)[span_22](end_span)</td>
-                        <td>CCTV Camera Installation[span_23](start_span)[span_23](end_span)</td>
-                        <td>1 Student's Presantation[span_24](start_span)[span_24](end_span)</td>
+                        <td>10:20–10:25</td>
+                        <td>CCTV Camera Installation</td>
+                        <td>1 Student's Presentation</td>
                     </tr>
                     <tr>
-                        <td>10:25-10:30[span_25](start_span)[span_25](end_span)</td>
-                        <td>GUHA IKAZE ABASHYITSI[span_26](start_span)[span_26](end_span)</td>
-                        <td>Director General[span_27](start_span)[span_27](end_span)</td>
+                        <td>10:25–10:30</td>
+                        <td>Guha Ikaze Abashyitsi</td>
+                        <td>Director General</td>
                     </tr>
                     <tr>
-                        <td>10:30-10:45[span_28](start_span)[span_28](end_span)</td>
-                        <td>SOFTWARE DEVELOPMENT[span_29](start_span)[span_29](end_span)</td>
-                        <td>3 Student's Presantation[span_30](start_span)[span_30](end_span)</td>
+                        <td>10:30–10:45</td>
+                        <td>Software Development</td>
+                        <td>3 Students' Presentation</td>
                     </tr>
                     <tr>
-                        <td>10:45-11:30[span_31](start_span)[span_31](end_span)</td>
-                        <td>5 Years Celebration with Guests[span_32](start_span)[span_32](end_span)</td>
-                        <td>All[span_33](start_span)[span_33](end_span)</td>
+                        <td>10:45–11:30</td>
+                        <td>5 Years Celebration with Guests</td>
+                        <td>All</td>
                     </tr>
                     <tr>
-                        <td>11:30-11:40[span_34](start_span)[span_34](end_span)</td>
-                        <td>IJAMBO[span_35](start_span)[span_35](end_span)</td>
-                        <td>Guest/Partner[span_36](start_span)[span_36](end_span)</td>
+                        <td>11:30–11:40</td>
+                        <td>Ijambo</td>
+                        <td>Guest / Partner</td>
                     </tr>
                     <tr>
-                        <td>11:40-11:50[span_37](start_span)[span_37](end_span)</td>
-                        <td>Pannel[span_38](start_span)[span_38](end_span)</td>
-                        <td>UMUYOBOZI W'IKIGO[span_39](start_span)[span_39](end_span)</td>
+                        <td>11:40–11:50</td>
+                        <td>Pannel</td>
+                        <td>Umuyobozi w'Ikigo</td>
                     </tr>
                     <tr>
-                        <td>11:50-12:00[span_40](start_span)[span_40](end_span)</td>
-                        <td>IJAMBO[span_41](start_span)[span_41](end_span)</td>
-                        <td>Guest/Partner[span_42](start_span)[span_42](end_span)</td>
+                        <td>11:50–12:00</td>
+                        <td>Ijambo</td>
+                        <td>Guest / Partner</td>
                     </tr>
                     <tr>
-                        <td>12:00-12:10[span_43](start_span)[span_43](end_span)</td>
-                        <td>IFOTO[span_44](start_span)[span_44](end_span)</td>
-                        <td>IRENE & MEDIA[span_45](start_span)[span_45](end_span)</td>
+                        <td>12:00–12:10</td>
+                        <td>Ifoto</td>
+                        <td>Irene &amp; Media</td>
                     </tr>
                     <tr>
-                        <td>12:10-13:30[span_46](start_span)[span_46](end_span)</td>
-                        <td>TOURISM AND HOSPITALITY[span_47](start_span)[span_47](end_span)</td>
-                        <td>19 Student's Presantation[span_48](start_span)[span_48](end_span)</td>
+                        <td>12:10–13:30</td>
+                        <td>Tourism and Hospitality</td>
+                        <td>19 Students' Presentation</td>
                     </tr>
                     <tr>
-                        <td>13:30-14:00[span_49](start_span)[span_49](end_span)</td>
-                        <td>10min BREAK/Gukusanya no Gutangaza Amanota[span_50](start_span)[span_50](end_span)</td>
-                        <td>Nadjibullah+Judges[span_51](start_span)[span_51](end_span)</td>
+                        <td>13:30–14:00</td>
+                        <td>10min Break / Gukusanya no Gutangaza Amanota</td>
+                        <td>Nadjibullah + Judges</td>
                     </tr>
                     <tr>
-                        <td>14:00-14:10[span_52](start_span)[span_52](end_span)</td>
-                        <td>IBIHEMBO KUBANYESHURI BAMWE BASOJE N'ABATSINZE KURUTA ABANDI[span_53](start_span)[span_53](end_span)</td>
-                        <td>Director General N'abashyitsi[span_54](start_span)[span_54](end_span)</td>
+                        <td>14:00–14:10</td>
+                        <td>Ibihembo kubanyeshuri bamwe basoje n'abatsinze kuruta abandi</td>
+                        <td>Director General n'abashyitsi</td>
                     </tr>
                     <tr>
-                        <td>14:10-14:15[span_55](start_span)[span_55](end_span)</td>
-                        <td>ISENGESHO NO GUSOZA[span_56](start_span)[span_56](end_span)</td>
-                        <td>Umunyeshuri[span_57](start_span)[span_57](end_span)</td>
+                        <td>14:10–14:15</td>
+                        <td>Isengesho no Gusoza</td>
+                        <td>Umunyeshuri</td>
                     </tr>
                     <tr>
-                        <td>14:15-14:30[span_58](start_span)[span_58](end_span)</td>
-                        <td>NETWORKING[span_59](start_span)[span_59](end_span)</td>
-                        <td>ALL[span_60](start_span)[span_60](end_span)</td>
+                        <td>14:15–14:30</td>
+                        <td>Networking</td>
+                        <td>All</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="rules">
-            <h3>ICYITONDERWA:[span_61](start_span)[span_61](end_span)</h3>
+            <h3>Icyitonderwa:</h3>
             <ol>
-                <li>Umunyeshuri uzakora defance akaza nyuma ya Saa 08:30 am hamaze gukorwa igenzurwa ry'urutonde rwabemerewe gukora, ntazemererwa gushyirwa kuri liste yabazakora ejo.[span_62](start_span)[span_62](end_span)</li>
-                <li>Umunyeshuri uzajya w'uzuza iminota 5 asabwa gukoresha muri presentation azajya ahita ahagarikwa n'abari kuri pannel (Dusabwa gukoresha igihe neza)[span_63](start_span)[span_63](end_span)</li>
-                <li>Umunyeshuri agomba gukora presentation mukiciro yemerewe gusa.[span_64](start_span)[span_64](end_span)</li>
-                <li>Kubahiriza igihe ni itegeko kuri twese.[span_65](start_span)[span_65](end_span)</li>
+                <li>Umunyeshuri uzakora defance akaza nyuma ya saa 08:30 am hamaze gukorwa igenzurwa ry'urutonde rw'abemerewe gukora, ntazemererwa gushyirwa kuri liste y'abazakora ejo.</li>
+                <li>Umunyeshuri uzajya w'uzuza iminota 5 asabwa gukoresha muri presentation azajya ahita ahagarikwa n'abari kuri pannel (Dusabwa gukoresha igihe neza).</li>
+                <li>Umunyeshuri agomba gukora presentation mu kiciro yemerewe gusa.</li>
+                <li>Kubahiriza igihe ni itegeko kuri twese.</li>
             </ol>
         </div>
 
         <div class="panel">
-            <h3>Abazayobora Pannel y'umunsi[span_66](start_span)[span_66](end_span)</h3>
+            <h3>Abazayobora Pannel y'umunsi</h3>
             <ul>
-                <li>I. Nadjibullah UWABATO[span_67](start_span)[span_67](end_span)</li>
-                <li>II. Emmanuel NZARAMBA[span_68](start_span)[span_68](end_span)</li>
-                <li>III. Viatel NIYITEGEKA[span_69](start_span)[span_69](end_span)</li>
-                <li>IV. NIYIDUHA Didac[span_70](start_span)[span_70](end_span)</li>
+                <li>I. Nadjibullah Uwabato</li>
+                <li>II. Emmanuel Nzaramba</li>
+                <li>III. Viatel Niyitegeka</li>
+                <li>IV. Niyiduha Didac</li>
             </ul>
         </div>
 
-        <div class="footer">
-            <p><strong>ABAZADEFANDA TUBIFURIJE INTSINZI.</strong>[span_71](start_span)[span_71](end_span)</p>
-            <p>
-                <a href="http://www.ksp.rw" target="_blank">www.ksp.rw</a>[span_72](start_span)[span_72](end_span) | 
-                Tel: 0785478665[span_73](start_span)[span_73](end_span) | 
-                E-mail: <a href="mailto:ksprwanda@gmail.com">ksprwanda@gmail.com</a>[span_74](start_span)[span_74](end_span)
+        <footer class="footer">
+            <p><strong>Abazadefanda tubifurije intsinzi.</strong></p>
+            <p class="contact-line">
+                <a href="http://www.ksp.rw" target="_blank" rel="noopener">www.ksp.rw</a>
+                <span class="sep">|</span>
+                <span>Tel: 0785478665</span>
+                <span class="sep">|</span>
+                <a href="mailto:ksprwanda@gmail.com">ksprwanda@gmail.com</a>
             </p>
-            
-            <!-- Dynamically generated QR code via API targeting the requested URL -->
-            <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://defenseagenda.netlify.app" alt="QR Code for Defense Agenda">
-            <p><small>Scan to view agenda online</small></p>
-        </div>
+
+            <div class="qr-wrapper">
+                <img
+                    class="qr-code"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://defanseagenda.netlify.app"
+                    alt="QR Code linking to the online defense agenda"
+                    loading="lazy"
+                    width="130"
+                    height="130">
+                <small>Scan to view agenda online</small>
+            </div>
+        </footer>
     </div>
 
 </body>
